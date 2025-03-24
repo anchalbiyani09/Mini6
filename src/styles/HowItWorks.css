@@ -1,0 +1,36 @@
+.how-it-works {
+    text-align: center;
+    position: relative;
+    padding: 50px 0;
+  }
+  
+  .how-it-works-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+  }
+  
+  .how-it-works-step {
+    text-align: center;
+    width: 22%;
+  }
+  
+  .how-it-works-step-icon {
+    background-color: #2f623d;
+    color: white;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  
+  .how-it-works-step-title {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  

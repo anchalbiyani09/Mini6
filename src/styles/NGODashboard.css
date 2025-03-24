@@ -1,0 +1,774 @@
+/* Global Styles */
+:root {
+  --primary-color: #2c6e49;
+  --primary-dark: #224d37;
+  --primary-light: #4e9171;
+  --secondary-color: #e9c46a;
+  --neutral-dark: #2f3e46;
+  --neutral-medium: #52796f;
+  --neutral-light: #f8f9fa;
+  --success-color: #43a047;
+  --error-color: #d32f2f;
+  --warning-color: #f9a825;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --radius: 6px;
+  --transition: all 0.3s ease;
+  --border-color: #e0e0e0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background-color: #f5f7f9;
+  margin: 0;
+  padding: 0;
+}
+
+/* Common Elements */
+button {
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: var(--radius);
+  border: none;
+  transition: var(--transition);
+  padding: 12px 18px;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-strong);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+input, textarea, select {
+  padding: 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  font-size: 15px;
+  transition: var(--transition);
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(44, 110, 73, 0.2);
+}
+
+input::placeholder, textarea::placeholder, select::placeholder {
+  color: #aab;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--neutral-dark);
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  position: relative;
+}
+
+h2:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 3px;
+}
+
+/* Container Styles */
+.ngo-profile-container, .ngo-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 30px;
+}
+
+/* Header & Navigation */
+.profile-header, .dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.edit-btn, .profile-btn, .back-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  box-shadow: var(--shadow);
+}
+
+.edit-btn:hover, .profile-btn:hover, .back-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Message Notifications */
+.message {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  margin-bottom: 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message.success {
+  background-color: rgba(67, 160, 71, 0.1);
+  color: var(--success-color);
+  border-left: 4px solid var(--success-color);
+}
+
+.message.error {
+  background-color: rgba(211, 47, 47, 0.1);
+  color: var(--error-color);
+  border-left: 4px solid var(--error-color);
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: inherit;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  box-shadow: none;
+}
+
+.close-btn:hover {
+  opacity: 1;
+  background: none;
+  transform: none;
+}
+
+/* Form Styles */
+.profile-form, .campaign-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  background-color: white;
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 40px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--neutral-dark);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.submit-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 14px 28px;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+}
+
+.cancel-btn {
+  background-color: var(--neutral-light);
+  color: var(--neutral-dark);
+  border: 1px solid #ddd;
+  padding: 14px 28px;
+  font-weight: 600;
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.cancel-btn:hover {
+  background-color: #e2e6ea;
+  transform: translateY(-2px);
+}
+
+/* Profile View Styles */
+.profile-view {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.profile-section {
+  padding: 30px;
+  background-color: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 25px;
+  border-top: 4px solid var(--primary-color);
+  transition: var(--transition);
+}
+
+.profile-section:hover {
+  box-shadow: var(--shadow-strong);
+  transform: translateY(-3px);
+}
+
+.profile-section h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+/* Logo and Organization Details */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.ngo-logo {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--primary-light);
+  padding: 5px;
+  background-color: white;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.ngo-logo:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-strong);
+}
+
+.logo-placeholder {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: bold;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.logo-placeholder:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-strong);
+}
+
+.profile-name-container {
+  flex: 1;
+}
+
+.profile-name-container h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--neutral-dark);
+  font-size: 32px;
+}
+
+.founded {
+  color: var(--neutral-medium);
+  margin: 0;
+  font-style: italic;
+  font-size: 16px;
+}
+
+.profile-row {
+  display: flex;
+  gap: 30px;
+}
+
+.profile-section.half {
+  flex: 1;
+}
+
+/* Contact Information */
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.contact-item {
+  padding: 20px;
+  background-color: var(--neutral-light);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--primary-light);
+  transition: var(--transition);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.contact-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  background-color: white;
+}
+
+/* Causes and Tags */
+.causes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cause-tag {
+  background-color: rgba(44, 110, 73, 0.1);
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 15px;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-light);
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.cause-tag:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Achievements */
+.achievements-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.achievements-list li {
+  margin-bottom: 15px;
+  padding-left: 10px;
+  position: relative;
+}
+
+.achievements-list li::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+}
+
+/* Loading State */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 18px;
+  color: var(--neutral-medium);
+}
+
+.loading:after {
+  content: "...";
+  animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+  0%, 20% { content: "."; }
+  40% { content: ".."; }
+  60%, 100% { content: "..."; }
+}
+
+/* Dashboard Styles */
+.ngo-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 30px;
+}
+
+.ngo-dashboard h1 {
+  margin-bottom: 30px;
+  color: var(--neutral-dark);
+  border-bottom: 3px solid var(--primary-light);
+  padding-bottom: 15px;
+  display: inline-block;
+}
+
+/* Stats Overview */
+.stats-overview {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.stat-box {
+  flex: 1;
+  background-color: white;
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+  border-bottom: 4px solid var(--primary-color);
+}
+
+.stat-box:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-strong);
+}
+
+.stat-box h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--neutral-medium);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.stat-box p {
+  font-size: 32px;
+  margin: 0;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* Campaign Form */
+.campaign-form {
+  margin-bottom: 40px;
+}
+
+.campaign-form h2 {
+  margin-bottom: 25px;
+}
+
+.campaign-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.campaign-form button {
+  margin-top: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.campaign-form button:hover {
+  background-color: var(--primary-dark);
+}
+
+.campaign-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Campaign List */
+.campaigns-list {
+  margin-top: 40px;
+}
+
+.campaigns-list h2 {
+  margin-bottom: 25px;
+}
+
+.campaign-card {
+  background-color: white;
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+  transition: var(--transition);
+  border-left: 4px solid var(--primary-color);
+}
+
+.campaign-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-strong);
+}
+
+.campaign-card h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  font-size: 22px;
+}
+
+.campaign-card p {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+/* User Info Section */
+.user-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 35px;
+  padding: 18px 25px;
+  background-color: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--primary-color);
+}
+
+.user-info p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.profile-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Warning and Alert Messages */
+.profile-warning, .profile-alert {
+  background-color: rgba(249, 168, 37, 0.1);
+  border-left: 4px solid var(--warning-color);
+  padding: 20px;
+  border-radius: var(--radius);
+  margin-bottom: 30px;
+  color: #856404;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  box-shadow: var(--shadow);
+}
+
+.profile-warning p, .profile-alert p {
+  margin: 0 0 10px 0;
+  font-weight: 500;
+}
+
+.alert-button {
+  background-color: var(--warning-color);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.alert-button:hover {
+  background-color: #e0a800;
+  transform: translateY(-2px);
+}
+
+/* Profile Summary in Dashboard */
+.profile-summary {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 15px 22px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  margin-bottom: 25px;
+}
+
+.profile-summary:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-strong);
+}
+
+.profile-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+  border: 3px solid var(--primary-light);
+}
+
+.dashboard-logo-placeholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 22px;
+  margin-right: 20px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .stats-overview {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .profile-section h3 {
+    font-size: 18px;
+  }
+  
+  .profile-name-container h2 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ngo-profile-container, .ngo-dashboard {
+    padding: 30px 20px;
+  }
+  
+  .profile-row {
+    flex-direction: column;
+  }
+  
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .logo-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profile-name-container {
+    text-align: center;
+  }
+  
+  .user-info {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .campaign-card {
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 28px;
+  }
+  
+  h2 {
+    font-size: 22px;
+  }
+  
+  .campaign-form form, .profile-form {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ngo-profile-container, .ngo-dashboard {
+    padding: 20px 15px;
+  }
+  
+  .ngo-logo, .logo-placeholder {
+    width: 100px;
+    height: 100px;
+    font-size: 36px;
+  }
+  
+  .profile-header, .dashboard-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .campaign-card h3 {
+    font-size: 20px;
+  }
+  
+  .profile-section {
+    padding: 20px;
+  }
+  
+  .profile-name-container h2 {
+    font-size: 24px;
+  }
+  
+  .stat-box p {
+    font-size: 26px;
+  }
+}

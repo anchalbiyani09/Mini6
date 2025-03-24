@@ -1,0 +1,146 @@
+/* Base navbar styling with reduced height */
+.navbar {
+  background-color: #3b6c40;
+  color: white;
+  padding: 0.5rem 1rem; /* Reduced vertical padding */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem; /* Fixed height */
+}
+
+/* Logo styling - slightly smaller */
+.logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+/* Navigation links - reduced padding */
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 0.35rem 0.8rem; /* Reduced padding */
+  cursor: pointer;
+  font-size: 0.95rem; /* Slightly smaller font */
+  position: relative;
+  transition: all 0.2s ease;
+  height: 2.2rem; /* Consistent height */
+  display: flex;
+  align-items: center;
+}
+
+.nav-link:focus {
+  outline: none;
+}
+
+/* Underline animation for non-button links */
+.nav-link:not(.nav-button)::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: white; /* Default underline color */
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:not(.nav-button):hover::after {
+  width: 70%;
+  background-color: #f9a825; /* Change underline color to #f9a825 on hover */
+}
+
+/* Active state for navigation links */
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 500;
+}
+
+/* Nav button styling (no underline for buttons) */
+.nav-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+}
+
+/* Logout button */
+.logout-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .navbar-container {
+    height: auto;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+  }
+  
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}.wallet-button {
+  background-color: rgba(76, 175, 80, 0.8);  /* #4caf50 with 80% opacity */
+  color: white;
+  backdrop-filter: blur(4px);  /* Adds a slight blur effect behind */
+  transition: all 0.3s ease;
+}
+
+.wallet-button:hover {
+  background-color: rgba(76, 175, 80, 1);  /* Full opacity on hover */
+}
+
+.wallet-info {
+  background-color: rgba(59, 108, 64, 0.8);  /* #3b6c40 with 80% opacity */
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.wallet-info:hover {
+  background-color: rgba(59, 108, 64, 0.9);  /* Slightly more opaque on hover */
+}

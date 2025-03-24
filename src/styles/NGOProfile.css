@@ -1,0 +1,335 @@
+/* NGOProfile.css - Green Theme with Clear Dividers */
+:root {
+  --primary: #1f904e;
+  --primary-dark: #1f904e;
+  --secondary: #3498db;
+  --secondary-dark: #2980b9;
+  --accent: #1abc9c;
+  --text: #2c3e50;
+  --light-bg: #f1f9f1;
+  --white: #ffffff;
+  --danger: #e74c3c;
+  --success: #2ecc71;
+  --divider: #e8f6e8;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+.ngo-profile-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text);
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 1.2rem;
+  color: var(--primary);
+  background: var(--light-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.message {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.message.success {
+  background-color: rgba(46, 204, 113, 0.15);
+  border-left: 4px solid var(--success);
+  color: #27ae60;
+}
+
+.message.error {
+  background-color: rgba(231, 76, 60, 0.15);
+  border-left: 4px solid var(--danger);
+  color: #c0392b;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: inherit;
+}
+
+.profile-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  transition: var(--transition);
+  border: 1px solid var(--divider);
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--white);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.profile-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.edit-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.edit-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.profile-view, .profile-form {
+  padding: 2rem;
+}
+
+/* Organization Name */
+.profile-view h2 {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: var(--primary-dark);
+  padding-bottom: 0.8rem;
+  border-bottom: 3px solid var(--primary);
+  position: relative;
+}
+
+/* Section Headers */
+.profile-view h3 {
+  font-size: 1.3rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--white);
+  background-color: var(--primary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  display: inline-block;
+}
+
+.profile-view p {
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+/* Clear Section Dividers */
+.profile-view > h3 ~ p:last-of-type,
+.profile-view > ul {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--divider);
+}
+
+.profile-view ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.profile-view li {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  background-color: var(--light-bg);
+  border-radius: 4px;
+  border-left: 3px solid var(--primary);
+  transition: var(--transition);
+}
+
+.profile-view li:hover {
+  background-color: var(--primary);
+  color: var(--white);
+  transform: translateX(3px);
+}
+
+.profile-view a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.profile-view a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Contact info styling */
+.profile-view strong {
+  color: var(--primary-dark);
+  min-width: 70px;
+  display: inline-block;
+}
+
+/* Form Styling */
+.form-group {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--divider);
+  position: relative;
+}
+
+.form-group::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary);
+}
+
+.form-group:last-child {
+  border-bottom: none;
+}
+
+.form-group:last-child::after {
+  display: none;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--primary-dark);
+  background-color: var(--light-bg);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+  background-color: var(--light-bg);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
+  background-color: white;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 3px solid var(--primary);
+}
+
+.submit-btn, .cancel-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.submit-btn {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.cancel-btn {
+  background-color: #f1f2f6;
+  color: var(--text);
+}
+
+.cancel-btn:hover {
+  background-color: #dfe4ea;
+}
+
+/* Achievements styling */
+.profile-view ul.achievements li {
+  display: block;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.8rem;
+  background-color: var(--light-bg);
+  border-left: 3px solid var(--accent);
+  width: 100%;
+}
+
+.profile-view ul.achievements li:hover {
+  background-color: rgba(46, 204, 113, 0.1);
+  border-left-color: var(--primary);
+  transform: translateX(3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .profile-view h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Form hover effect */
+.profile-form:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow), 0 8px 25px rgba(46, 204, 113, 0.1);
+}

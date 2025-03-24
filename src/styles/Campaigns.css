@@ -1,0 +1,125 @@
+/* Campaigns.css */
+
+.campaigns-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.campaigns-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.campaigns-header h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 1rem;
+}
+
+.campaigns-header h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background-color: #3b6c40;
+  border-radius: 2px;
+}
+
+.campaigns-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.campaign-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  border-top: 5px solid #3b6c40;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.campaign-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.campaign-card h3 {
+  font-size: 1.6rem;
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.campaign-card p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Progress Bar */
+.progress-bar-container {
+  width: 100%;
+  background-color: #e0e0e0;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: auto;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #3b6c40;
+  transition: width 0.4s ease-in-out;
+}
+
+/* Button */
+.campaign-card button {
+  background-color: #3b6c40;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.campaign-card button:hover {
+  background-color: #2c5430;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .campaigns-header h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .campaigns-header h2 {
+    font-size: 2rem;
+  }
+
+  .campaigns-list {
+    grid-template-columns: 1fr;
+  }
+
+  .campaign-card {
+    padding: 1.5rem;
+  }
+}
